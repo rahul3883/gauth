@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { google } from 'googleapis';
 import { ConfigService } from './config.service';
-import * as open from 'open';
-import { launch, Launcher, killAll } from 'chrome-launcher';
+import { launch, killAll } from 'chrome-launcher';
 
 @Injectable()
 export class AppService {
@@ -21,8 +20,9 @@ export class AppService {
 
   async killChrome() {
     // this.chrome.kill();
-    const errors = await killAll();
-    errors.length > 0 && console.log(errors);
+    // const errors = await killAll();
+    // errors.length > 0 && console.log(errors);
+    killAll();
   }
 
   getAuthUrl() {
